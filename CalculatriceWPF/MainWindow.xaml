@@ -5,8 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatriceWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="450" Width="300">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="btnNumber">
+            <Setter Property="Height" Value="75" />
+            <Setter Property="Width" Value="75" />
+            <Setter Property="Background" Value="#F0F0F0" />
+            <Setter Property="FontSize" Value="25" />
+        </Style>
         
+        <Style TargetType="Button" x:Key="btnMenu">
+            <Setter Property="Background" Value="#647387" />
+            <Setter Property="Foreground" Value="AntiqueWhite" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="btnOperator">
+            <Setter Property="Background" Value="#B4B9C3" />
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="75*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Display -->
+        <StackPanel Grid.ColumnSpan="4" Grid.RowSpan="2" Orientation="Vertical">
+            <TextBlock Text="TextBlock" Height="16"/>
+            <TextBlock Text="Toto" Height="84" FontSize="50" TextAlignment="Right" />
+        </StackPanel>
+        
+        
+        <!-- Menu Calc-->
+        <Button Content="CE" Margin="0" Grid.Row="1" Style="{StaticResource btnMenu}" />
+        <Button Content="C" Margin="0" Grid.Row="1" Grid.Column="1" Style="{StaticResource btnMenu}" />
+        <Button Content="Back" Margin="0" Grid.Row="1" Grid.Column="2" Style="{StaticResource btnMenu}" />
+        <Button Content="History" Margin="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource btnMenu}" />
+
+        <!-- Operators and more -->
+        <Button Content="+" Margin="0" Grid.Row="2" Grid.Column="3" Style="{StaticResource btnOperator}" />
+        <Button Content="-" Margin="0" Grid.Row="3" Grid.Column="3" Style="{StaticResource btnOperator}" />
+        <Button Content="X" Margin="0" Grid.Row="4" Grid.Column="3" Style="{StaticResource btnOperator}" />
+        <Button Content="/" Margin="0" Grid.Row="5" Grid.Column="3" Style="{StaticResource btnOperator}" />
+
+        <Button Content="," Margin="0" Grid.Row="5" Grid.Column="0" Style="{StaticResource btnOperator}" />
+        <Button Content="=" Margin="0" Grid.Row="5" Grid.Column="2" Style="{StaticResource btnOperator}" />
+
+        <!-- Panel Numbers-->
+        <Button Content="7" Margin="0" Grid.Row="2" Style="{StaticResource btnNumber}"/>
+        <Button Content="8" Margin="0" Grid.Row="2" Grid.Column="1" Style="{StaticResource btnNumber}"/>
+        <Button Content="9" Margin="0" Grid.Row="2" Grid.Column="2" Style="{StaticResource btnNumber}"/>
+
+        <Button Content="4" Margin="0" Grid.Row="3" Style="{StaticResource btnNumber}"/>
+        <Button Content="5" Margin="0" Grid.Row="3" Grid.Column="1" Style="{StaticResource btnNumber}"/>
+        <Button Content="6" Margin="0" Grid.Row="3" Grid.Column="2" Style="{StaticResource btnNumber}"/>
+
+        <Button Content="1" Margin="0" Grid.Row="4" Style="{StaticResource btnNumber}"/>
+        <Button Content="2" Margin="0" Grid.Row="4" Grid.Column="1" Style="{StaticResource btnNumber}"/>
+        <Button Content="3" Margin="0" Grid.Row="4" Grid.Column="2" Style="{StaticResource btnNumber}"/>
+
+        <Button Content="0" Margin="0" Grid.Row="5" Grid.Column="1" Style="{StaticResource btnNumber}"/>
     </Grid>
 </Window>
