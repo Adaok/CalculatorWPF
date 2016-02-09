@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CalculatriceWPF
 {
@@ -105,6 +94,11 @@ namespace CalculatriceWPF
             //if operator is + or - or * or /
             else
             {
+                if(valueDisplay1 == "operatorPressedBefore")
+                {
+                    return;
+                }
+
                 lastValue = float.Parse(valueDisplay1);
 
                 //if is the first operator clicked
@@ -143,6 +137,28 @@ namespace CalculatriceWPF
 
                 LineDetails.Text = mOperation;
             }
+        }
+
+        private void btn_click_CE(object sender, RoutedEventArgs e)
+        {
+            valueDisplay1 = string.Empty;
+            LineValue.Text = string.Empty;
+        }
+
+        private void btn_click_C(object sender, RoutedEventArgs e)
+        {
+            mOperation = string.Empty;
+            valueDisplay1 = string.Empty;
+            valueResult = 0;
+            lastValue = 0;
+            lastOperator = string.Empty;
+            LineDetails.Text = string.Empty;
+            LineValue.Text = string.Empty;
+        }
+
+        private void btn_click_back(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

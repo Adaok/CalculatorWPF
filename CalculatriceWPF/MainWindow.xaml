@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatriceWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="300">
+        Title="Calculatrice" Height="450" Width="300">
 
     <Window.Resources>
         <Style TargetType="Button" x:Key="btnNumber">
@@ -50,10 +50,10 @@
         </StackPanel>
          
         <!-- Menu Calc-->
-        <Button Content="CE" Margin="0" Grid.Row="1" Style="{StaticResource btnMenu}" />
-        <Button Content="C" Margin="0" Grid.Row="1" Grid.Column="1" Style="{StaticResource btnMenu}" />
-        <Button Content="Back" Margin="0" Grid.Row="1" Grid.Column="2" Style="{StaticResource btnMenu}" />
-        <Button Content="History" Margin="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource btnMenu}" />
+        <Button Content="CE" Margin="0" Grid.Row="1" Style="{StaticResource btnMenu}" Click="btn_click_CE" />
+        <Button Content="C" Margin="0" Grid.Row="1" Grid.Column="1" Style="{StaticResource btnMenu}" Click="btn_click_C" />
+        <Button Content="&#xEB96;" FontFamily="Segoe MDL2 Assets" Margin="0" Grid.Row="1" Grid.Column="2" Style="{StaticResource btnMenu}" Click="btn_click_back" FontSize="20" />
+        <Button Content="&#xE81C;" FontFamily="Segoe MDL2 Assets" Margin="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource btnMenu}" FontSize="20" />
 
         <!-- Operators and more -->
         <Button Content="+" Margin="0" Grid.Row="2" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
