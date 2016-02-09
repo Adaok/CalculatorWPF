@@ -41,7 +41,14 @@ namespace CalculatriceWPF
             }
             else //other previous click case, dot inclused
             {
-                valueDisplay1 = valueDisplay1 + (String)((Button)sender).Content;
+                if (valueDisplay1 == "0")
+                {
+                    valueDisplay1 = (String)((Button)sender).Content;
+                }
+                else
+                {
+                    valueDisplay1 = valueDisplay1 + (String)((Button)sender).Content;
+                }
             }
 
             LineValue.Text = valueDisplay1;
@@ -158,7 +165,20 @@ namespace CalculatriceWPF
 
         private void btn_click_back(object sender, RoutedEventArgs e)
         {
+            if (valueDisplay1 == "operatorPressedBefore")
+            {
+                return;
+            }
+            else if ( valueDisplay1.Length == 1)
+            {
+                valueDisplay1 = "0";
+            }
+            else
+            {
+                valueDisplay1 = valueDisplay1.Substring(0, valueDisplay1.Length - 1);
+            }
 
+            LineValue.Text = valueDisplay1;
         }
     }
 }
