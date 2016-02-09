@@ -35,18 +35,22 @@ namespace CalculatriceWPF
 
         private void btn_click_Value(object sender, RoutedEventArgs e)
         {
-            if(valueDisplay1 == string.Empty) //si on a jamais cliqué sur un chiffre, ou qu'on avait cliqué sur égal
+            if(valueDisplay1 == string.Empty) //never click on a number or click on equals
             {
-                //TODO SAUVEGARDER L OPERATION
+                //TODO save previous operation.
+                mOperation = string.Empty;
+                valueResult = 0;
+                lastValue = 0;
+                lastOperator = string.Empty;
                 LineDetails.Text = string.Empty;
                 valueDisplay1 = (String)((Button)sender).Content;
             }
-            else if (valueDisplay1 == "operatorPressedBefore")//si on a cliqué sur un operateur + - * /
+            else if (valueDisplay1 == "operatorPressedBefore")//previous click on a operator : + - * /
             {
                 LineValue.Text = string.Empty;
                 valueDisplay1 = (String)((Button)sender).Content;
             }
-            else // autres cas avec virgule comprise
+            else //other previous click case, dot inclused
             {
                 valueDisplay1 = valueDisplay1 + (String)((Button)sender).Content;
             }
@@ -59,8 +63,6 @@ namespace CalculatriceWPF
             //we catch the string value of the operator button pressed
             string mOperator = (String)((Button)sender).Content;
 
-            //lastValue = float.Parse(valueDisplay1);
-
             // if the button pressed is .
             if (mOperator == ".")
             {
@@ -72,12 +74,39 @@ namespace CalculatriceWPF
             else if (mOperator == "=")
             {
                 //TODO
-                //call convertissor
+                lastValue = float.Parse(valueDisplay1);
+
+                switch (lastOperator)
+                {
+                    case "+":
+                        valueResult = valueResult + lastValue;
+                        break;
+
+                    case "-":
+                        valueResult = valueResult - lastValue;
+                        break;
+
+                    case "X":
+                        valueResult = valueResult * lastValue;
+                        break;
+
+                    case "/":
+                        valueResult = valueResult / lastValue;
+                        break;
+                }
+
+                mOperation = mOperation + valueDisplay1 + mOperator;
+                LineDetails.Text = mOperation;
+                LineValue.Text = valueResult.ToString();
+                valueDisplay1 = string.Empty;
+
                 return;
             }
             //if operator is + or - or * or /
             else
             {
+                lastValue = float.Parse(valueDisplay1);
+
                 //if is the first operator clicked
                 if (valueResult == 0)
                 {
@@ -88,8 +117,6 @@ namespace CalculatriceWPF
                 }
                 else
                 {
-                    lastValue = float.Parse(valueDisplay1);
-
                     switch (lastOperator)
                     {
                         case "+":
