@@ -45,11 +45,10 @@
         
         <!-- Display -->
         <StackPanel Grid.ColumnSpan="4" Grid.RowSpan="2" Orientation="Vertical">
-            <TextBlock Text="TextBlock" Height="16"/>
-            <TextBlock Text="Toto" Height="84" FontSize="50" TextAlignment="Right" />
+            <TextBlock x:Name="LineDetails" Text="TextBlock" Height="16"/>
+            <TextBlock x:Name="LineValue" Text="Toto" Height="84" FontSize="50" TextAlignment="Right" />
         </StackPanel>
-        
-        
+         
         <!-- Menu Calc-->
         <Button Content="CE" Margin="0" Grid.Row="1" Style="{StaticResource btnMenu}" />
         <Button Content="C" Margin="0" Grid.Row="1" Grid.Column="1" Style="{StaticResource btnMenu}" />
@@ -57,27 +56,27 @@
         <Button Content="History" Margin="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource btnMenu}" />
 
         <!-- Operators and more -->
-        <Button Content="+" Margin="0" Grid.Row="2" Grid.Column="3" Style="{StaticResource btnOperator}" />
-        <Button Content="-" Margin="0" Grid.Row="3" Grid.Column="3" Style="{StaticResource btnOperator}" />
-        <Button Content="X" Margin="0" Grid.Row="4" Grid.Column="3" Style="{StaticResource btnOperator}" />
-        <Button Content="/" Margin="0" Grid.Row="5" Grid.Column="3" Style="{StaticResource btnOperator}" />
+        <Button Content="+" Margin="0" Grid.Row="2" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+        <Button Content="-" Margin="0" Grid.Row="3" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+        <Button Content="X" Margin="0" Grid.Row="4" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+        <Button Content="/" Margin="0" Grid.Row="5" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
 
-        <Button Content="," Margin="0" Grid.Row="5" Grid.Column="0" Style="{StaticResource btnOperator}" />
-        <Button Content="=" Margin="0" Grid.Row="5" Grid.Column="2" Style="{StaticResource btnOperator}" />
+        <Button Content="." Margin="0" Grid.Row="5" Grid.Column="0" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+        <Button Content="=" Margin="0" Grid.Row="5" Grid.Column="2" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
 
         <!-- Panel Numbers-->
-        <Button Content="7" Margin="0" Grid.Row="2" Style="{StaticResource btnNumber}"/>
-        <Button Content="8" Margin="0" Grid.Row="2" Grid.Column="1" Style="{StaticResource btnNumber}"/>
-        <Button Content="9" Margin="0" Grid.Row="2" Grid.Column="2" Style="{StaticResource btnNumber}"/>
+        <Button Content="7" Margin="0" Grid.Row="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        <Button Content="8" Margin="0" Grid.Row="2" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        <Button Content="9" Margin="0" Grid.Row="2" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
 
-        <Button Content="4" Margin="0" Grid.Row="3" Style="{StaticResource btnNumber}"/>
-        <Button Content="5" Margin="0" Grid.Row="3" Grid.Column="1" Style="{StaticResource btnNumber}"/>
-        <Button Content="6" Margin="0" Grid.Row="3" Grid.Column="2" Style="{StaticResource btnNumber}"/>
+        <Button Content="4" Margin="0" Grid.Row="3" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        <Button Content="5" Margin="0" Grid.Row="3" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        <Button Content="6" Margin="0" Grid.Row="3" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
 
-        <Button Content="1" Margin="0" Grid.Row="4" Style="{StaticResource btnNumber}"/>
-        <Button Content="2" Margin="0" Grid.Row="4" Grid.Column="1" Style="{StaticResource btnNumber}"/>
-        <Button Content="3" Margin="0" Grid.Row="4" Grid.Column="2" Style="{StaticResource btnNumber}"/>
+        <Button Content="1" Margin="0" Grid.Row="4" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        <Button Content="2" Margin="0" Grid.Row="4" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        <Button Content="3" Margin="0" Grid.Row="4" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
 
-        <Button Content="0" Margin="0" Grid.Row="5" Grid.Column="1" Style="{StaticResource btnNumber}"/>
+        <Button Content="0" Margin="0" Grid.Row="5" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
     </Grid>
 </Window>
