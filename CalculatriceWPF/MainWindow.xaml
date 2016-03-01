@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatriceWPF"
         mc:Ignorable="d"
-        Title="Calculatrice" Height="450" Width="300">
+        Title="Calculatrice" Height="480" Width="300">
 
     <Window.Resources>
         <Style TargetType="Button" x:Key="btnNumber">
@@ -14,7 +14,7 @@
             <Setter Property="Background" Value="#F0F0F0" />
             <Setter Property="FontSize" Value="25" />
         </Style>
-        
+
         <Style TargetType="Button" x:Key="btnMenu">
             <Setter Property="Background" Value="#647387" />
             <Setter Property="Foreground" Value="AntiqueWhite" />
@@ -25,58 +25,82 @@
             <Setter Property="Background" Value="#B4B9C3" />
             <Setter Property="FontSize" Value="30" />
         </Style>
-        
+
     </Window.Resources>
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="75*"/>
-            <ColumnDefinition Width="75*"/>
-            <ColumnDefinition Width="75*"/>
-            <ColumnDefinition Width="75*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="75*"/>
-            <RowDefinition Height="75*"/>
-            <RowDefinition Height="75*"/>
-            <RowDefinition Height="75*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="300"/>
         </Grid.RowDefinitions>
-        
+
         <!-- Display -->
-        <StackPanel Grid.ColumnSpan="4" Grid.RowSpan="2" Orientation="Vertical">
+        <StackPanel>
             <TextBlock x:Name="LineDetails" Text="TextBlock" Height="16"/>
             <TextBlock x:Name="LineValue" Text="Toto" Height="84" FontSize="50" TextAlignment="Right" />
         </StackPanel>
-         
+
         <!-- Menu Calc-->
-        <Button Content="CE" Margin="0" Grid.Row="1" Style="{StaticResource btnMenu}" Click="btn_click_CE" />
-        <Button Content="C" Margin="0" Grid.Row="1" Grid.Column="1" Style="{StaticResource btnMenu}" Click="btn_click_C" />
-        <Button Content="&#xEB96;" FontFamily="Segoe MDL2 Assets" Margin="0" Grid.Row="1" Grid.Column="2" Style="{StaticResource btnMenu}" Click="btn_click_back" FontSize="20" />
-        <Button Content="&#xE81C;" FontFamily="Segoe MDL2 Assets" Margin="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource btnMenu}" FontSize="20" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="CE" Margin="0" Style="{StaticResource btnMenu}" Click="btn_click_CE" Width="72" />
+            <Button Content="C" Margin="0" Style="{StaticResource btnMenu}" Click="btn_click_C" Width="73" />
+            <Button Content="&#xEB96;" FontFamily="Segoe MDL2 Assets" Margin="0" Style="{StaticResource btnMenu}" Click="btn_click_back" FontSize="20" Width="73" />
+            <Button Content="&#xE81C;" FontFamily="Segoe MDL2 Assets" Margin="0" Style="{StaticResource btnMenu}" FontSize="20" Click="btn_click_history" Width="73" />
+        </StackPanel>
 
-        <!-- Operators and more -->
-        <Button Content="+" Margin="0" Grid.Row="2" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
-        <Button Content="-" Margin="0" Grid.Row="3" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
-        <Button Content="X" Margin="0" Grid.Row="4" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
-        <Button Content="/" Margin="0" Grid.Row="5" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75*"/>
+                <RowDefinition Height="75*"/>
+                <RowDefinition Height="75*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
 
-        <Button Content="." Margin="0" Grid.Row="5" Grid.Column="0" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
-        <Button Content="=" Margin="0" Grid.Row="5" Grid.Column="2" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+            <!-- Operators and more -->
+            <Button Content="+" Margin="0" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+            <Button Content="-" Margin="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+            <Button Content="X" Margin="0" Grid.Row="2" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+            <Button Content="/" Margin="0" Grid.Row="3" Grid.Column="3" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
 
-        <!-- Panel Numbers-->
-        <Button Content="7" Margin="0" Grid.Row="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
-        <Button Content="8" Margin="0" Grid.Row="2" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
-        <Button Content="9" Margin="0" Grid.Row="2" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="." Margin="0" Grid.Row="4" Grid.Column="0" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
+            <Button Content="=" Margin="0" Grid.Row="4" Grid.Column="2" Style="{StaticResource btnOperator}" Click="btn_click_Operator"/>
 
-        <Button Content="4" Margin="0" Grid.Row="3" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
-        <Button Content="5" Margin="0" Grid.Row="3" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
-        <Button Content="6" Margin="0" Grid.Row="3" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <!-- Panel Numbers-->
+            <Button Content="7" Margin="0" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="8" Margin="0" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="9" Margin="0" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
 
-        <Button Content="1" Margin="0" Grid.Row="4" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
-        <Button Content="2" Margin="0" Grid.Row="4" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
-        <Button Content="3" Margin="0" Grid.Row="4" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="4" Margin="0" Grid.Row="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="5" Margin="0" Grid.Row="1" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="6" Margin="0" Grid.Row="1" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
 
-        <Button Content="0" Margin="0" Grid.Row="5" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="1" Margin="0" Grid.Row="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="2" Margin="0" Grid.Row="2" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+            <Button Content="3" Margin="0" Grid.Row="2" Grid.Column="2" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+
+            <Button Content="0" Margin="0" Grid.Row="4" Grid.Column="1" Style="{StaticResource btnNumber}" Click="btn_click_Value"/>
+        </Grid>
+
+        <!-- History -->
+        <StackPanel x:Name="HistoryPanel" Width="292" VerticalAlignment="Bottom" Height="300" Visibility="Collapsed" Grid.Row="2">
+            <ListBox x:Name="lbHistory" ItemsSource="{Binding itemsHistory}" Height="300" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Calcul}" />
+                            <TextBlock Text="{Binding Result}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
     </Grid>
 </Window>

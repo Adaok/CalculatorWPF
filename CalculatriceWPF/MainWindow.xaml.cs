@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,12 +16,16 @@ namespace CalculatriceWPF
         private float lastValue;
         private string lastOperator;
         private string mOperation;
+        public ObservableCollection<ItemHistory> itemsHistory { get; set;}
 
         public MainWindow()
         {
             InitializeComponent();
             LineDetails.Text = string.Empty;
             LineValue.Text = string.Empty;
+            itemsHistory = new ObservableCollection<ItemHistory>();
+            DataContext = this;
+
         }
 
         private void btn_click_Value(object sender, RoutedEventArgs e)
@@ -95,6 +101,9 @@ namespace CalculatriceWPF
                 LineDetails.Text = mOperation;
                 LineValue.Text = valueResult.ToString();
                 valueDisplay1 = string.Empty;
+
+                ItemHistory item = new ItemHistory(mOperation, valueResult.ToString());
+                itemsHistory.Add(item);
 
                 return;
             }
@@ -179,6 +188,21 @@ namespace CalculatriceWPF
             }
 
             LineValue.Text = valueDisplay1;
+        }
+
+        private void btn_click_history(object sender, RoutedEventArgs e)
+        {
+            //lbHistory.ItemsSource = itemsHistory;
+            if(HistoryPanel.Visibility != Visibility.Visible)
+            {
+                HistoryPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                HistoryPanel.Visibility = Visibility.Collapsed;
+            }
+
+            return;
         }
     }
 }
